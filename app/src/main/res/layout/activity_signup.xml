@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Definiše XML verziju i karakter kodiranja dokumenta (UTF-8) -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".SignupActivity">
+    <!-- Definiše glavni roditeljski layout kao ConstraintLayout, koji omogućava fleksibilno pozicioniranje elemenata.
+         Layout će zauzeti celu širinu i visinu ekrana. Pozadina je bela.
+         tools:context služi za vezivanje sa odgovarajućom aktivnošću u Android Studiu. -->
+
+    <!-- Kartica za unos podataka -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/signupCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        android:backgroundTint="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- Koristi CardView koji stvara karticu sa zaobljenim ivicama (20dp) i senkom (elevation 8dp).
+             Pozadina kartice je bela, a kartica je centrirana u ekranu koristeći constraint na roditeljski element. -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+            <!-- LinearLayout unutar kartice organizuje elemente u vertikalni raspored i postavlja unutrašnju marginu od 24dp. -->
+
+            <!-- Logo unutar kartice -->
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_logo"
+                android:layout_gravity="center"
+                android:contentDescription="App Logo"/>
+            <!-- Slika logo-a aplikacije, koja se prikazuje na sredini kartice. Veličina slike je 80x80dp.
+                 contentDescription je tu za pristupačnost, npr. za screen reader-e. -->
+
+            <!-- Email polje -->
+            <EditText
+                android:id="@+id/signupEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="8dp"/>
+            <!-- Polje za unos email adrese sa hintom 'Email'. Ima zaobljenu pozadinu (rounded_edittext) i malu ikonu email-a (ic_email).
+                 Unos je tipa 'email' što osigurava da će tastatura prikazati odgovarajuće znakove za email adresu. -->
+
+            <!-- Password polje -->
+            <EditText
+                android:id="@+id/signupPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="8dp"/>
+            <!-- Polje za unos lozinke sa hintom 'Password'. Unos je skriven jer je tipa 'password'.
+                 Ima zaobljenu pozadinu i malu ikonu lozinke (ic_password). -->
+
+            <!-- Signup dugme -->
+            <Button
+                android:id="@+id/signupButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SIGNUP"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/teal_200"
+                android:background="@drawable/rounded_button"/>
+            <!-- Dugme za registraciju korisnika sa tekstom 'SIGNUP'. Pozadina dugmeta je zaobljena (rounded_button),
+                 a boja pozadine je definirana nijansom 'teal_200'. Tekst na dugmetu je bele boje. -->
+
+            <!-- Tekst za prebacivanje na login -->
+            <TextView
+                android:id="@+id/loginText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already registered? Login"
+                android:textSize="16sp"
+                android:textColor="@color/teal_200"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"/>
+            <!-- Tekstualni link koji korisnika prebacuje na login stranicu ako je već registrovan. Tekst je centriran i koristi 'teal_200' boju. -->
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
